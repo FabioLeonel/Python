@@ -1,3 +1,4 @@
+#take wifi password in windows 10
 import subprocess
 
 data = subprocess.check_output(['netsh', 'wlan', 'show', 'profiles']).decode('utf-8', errors="backslashreplace").split('\n')
@@ -9,7 +10,7 @@ for i in profiles:
         try:
             print ("{:<30}|  {:<}".format(i, results[0]))
         except IndexError:
-            print ("{:<30}|  {:<}".format(i, ""))
+            print("{:<30}|  {:<}".format(i, ""))
     except subprocess.CalledProcessError:
-        print ("{:<30}|  {:<}".format(i, "ENCODING ERROR"))
+        print("{:<30}|  {:<}".format(i, "ENCODING ERROR"))
 input("")
